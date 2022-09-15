@@ -13,7 +13,7 @@ export default class Movies extends Component {
 
   componentDidMount(){
     const res = axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f1d294635498b00bb52064f79df58408&language=en-US&page=1`);
-    console.log('moounting done');
+  
   }
   render() {
     let movie=movies.results;
