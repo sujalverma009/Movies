@@ -50,7 +50,13 @@ export default class Movies extends Component {
   }
 
  }
-
+handleClick=(value)=>{
+  if(value!=this.state.currPage){
+    this.setState({
+      currPage:value
+    },this.changeMovies)
+  }
+}
 
 
 
@@ -95,7 +101,7 @@ export default class Movies extends Component {
           <li className="page-item"><a className="page-link" onClick={this.handleLeft}>Previous</a></li>
           {
             this.state.parr.map((value)=>(
-                <li className="page-item"><a className="page-link" href="#">{value}</a></li>
+                <li className="page-item"><a className="page-link" onClick={()=>this.handleClick(value)}>{value}</a></li>
             ))
           }
           <li className="page-item" onClick={this.handleRight}><a className="page-link" href="#">Next</a></li>
