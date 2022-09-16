@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import React, { Component } from 'react'
 
 import axios from 'axios'
@@ -16,7 +17,7 @@ export default class Movies extends Component {
   async componentDidMount(){
     const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f1d294635498b00bb52064f79df58408&language=en-US&page=${this.state.currPage}`);
     let data= res.data;
-    console.log(data);
+  
     this.setState({
       movies:[...data.results]
     })
@@ -25,7 +26,7 @@ export default class Movies extends Component {
  changeMovies=async()=>{
     const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f1d294635498b00bb52064f79df58408&language=en-US&page=${this.state.currPage}`);
     let data= res.data;
-    console.log(data);
+ 
     this.setState({
       movies:[...data.results]
     })
@@ -41,14 +42,21 @@ export default class Movies extends Component {
       currPage:this.state.currPage+1
     } , this.changeMovies)
   }
+ handleLeft=()=>{
+  if(this.state.currPage!=1){
+    this.setState({
+      currPage:this.state.currPage-1,
+    },this.changeMovies)
+  }
 
+ }
 
 
 
 
   render() {
   
-    console.log('render');
+   
     return (
      <>
      {
@@ -84,7 +92,7 @@ export default class Movies extends Component {
       </div>
           <nav aria-label="Page navigation example" style={{display:'flex', justifyContent:'center'}}>
           <ul className="pagination">
-          <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+          <li className="page-item"><a className="page-link" onClick={this.handleLeft}>Previous</a></li>
           {
             this.state.parr.map((value)=>(
                 <li className="page-item"><a className="page-link" href="#">{value}</a></li>
