@@ -60,9 +60,7 @@ handleClick=(value)=>{
 
 
 
-  render() {
-  
-   
+  render() { 
     return (
      <>
      {
