@@ -123,7 +123,7 @@ this.setState({
     return (
       <div className='main'>
       <div className='row'>
-        <div className='col-3'>
+        <div className='col-lg-3 col-sm-12'>
             <ul class="list-group favourites-genres">
             {
               this.state.genres.map((genre)=>(
@@ -134,7 +134,7 @@ this.setState({
             }
                 </ul>
         </div>
-        <div className='col-9 favourites-table'>
+        <div div className = 'col-lg-9 favourites-table col-sm-12' >
         <div className="row">
             <input type="text" className="input-group-text col" placeholder='Search' value={this.state.currText} onChange={(e)=>{this.setState({currText:e.target.value})}} />
             
